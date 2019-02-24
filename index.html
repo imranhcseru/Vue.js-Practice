@@ -27,10 +27,15 @@
             <h2 v-if = 'show'>
                 Third element
             </h2>
-
+            <!-- Fourth practice -->
             <ol>
                 <li v-for = 'list in lists'>{{list}}</li>
             </ol>
+
+            <!-- fifth practice -->
+            <ul>
+                <li v-for = 'ul_list in ul_lists'>{{ul_list.social}}</li>
+            </ul>
         </div>
     </div>
 
@@ -41,7 +46,13 @@
                 message:"Hi this is vue",
                 className:'alert alert-danger',
                 show : false,
-                lists:['Google','Facebook','Amazon','Microsoft']
+                lists:['Google','Facebook','Amazon','Microsoft'],
+                ul_lists:[
+                    {search:'Google'},
+                    {social:'Facebook'},
+                    {ecommerce:'Amazon'},
+                    {software:'Microsoft'}
+                ]
             }
         });
     </script>
