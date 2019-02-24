@@ -18,9 +18,13 @@
             <!-- tenth practice -->
             <h3>{{reverse()}}</h3>
             <!-- eleventh practice -->
-            KM-M conversion
+            KM-M conversion<br>
             KM<input type="text" v-model = 'km'>
             M<input type="text" v-model = 'm'>
+            <!-- Twelvth practice -->
+            <input type="text" v-model = 'fullname'>
+            {{firstName}}<br>
+            {{lastName}}
         </div>
     </div>
 
@@ -29,8 +33,10 @@
             el:'#app',
             data:{
                 message:'Hi this is',
-                km:0,
-                m:0
+                km:null,
+                m:null,
+                firstName:'Imran',
+                lastName:'Hosen'
             },
 
             methods:{
@@ -48,6 +54,20 @@
                 m:function(val){
                     this.m = val;
                     this.km = val/1000;
+                }
+            },
+
+            computed:{
+                fullname:{
+                    get:function(){
+                        return  this.firstName  + ' ' + this.lastName;
+                    },
+
+                    set:function(name){
+                        var name = name.split(' ');
+                        this.firstName = name[0];
+                        this.lastName = name[1];
+                    }
                 }
             }
         });
