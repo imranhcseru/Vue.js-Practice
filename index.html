@@ -27,6 +27,10 @@
             <h2 v-if = 'show'>
                 Third element
             </h2>
+
+            <ol>
+                <li v-for = 'list in lists'>{{list}}</li>
+            </ol>
         </div>
     </div>
 
@@ -36,7 +40,8 @@
             data:{
                 message:"Hi this is vue",
                 className:'alert alert-danger',
-                show : false
+                show : false,
+                lists:['Google','Facebook','Amazon','Microsoft']
             }
         });
     </script>
