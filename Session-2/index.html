@@ -15,7 +15,11 @@
 <body>
     <div class="container">
         <div id="app">
+            <!-- tenth practice -->
             <h3>{{reverse()}}</h3>
+            <!-- eleventh practice -->
+            <input type="text" v-model = 'km'>
+            <input type="text" v-model = 'm'>
         </div>
     </div>
 
@@ -23,12 +27,26 @@
         new Vue ({
             el:'#app',
             data:{
-                message:'Hi this is Session-2'
+                message:'Hi this is',
+                km:0,
+                m:0
             },
 
             methods:{
                 reverse:function(){
                     return this.message.split('').reverse().join('');
+                }
+            },
+
+            watch:{
+                km:function(val){
+                    this.km = val;
+                    this.m  = val*1000;
+                },
+
+                m:function(val){
+                    this.m = val;
+                    this.km = val/1000;
                 }
             }
         });
