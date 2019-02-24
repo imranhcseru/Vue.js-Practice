@@ -22,6 +22,11 @@
             <h1 v-bind:class = 'className'>
                 {{message}}
             </h1>
+
+            <!-- Third practice -->
+            <h2 v-if = 'show'>
+                Third element
+            </h2>
         </div>
     </div>
 
@@ -30,7 +35,8 @@
             el:'#app',
             data:{
                 message:"Hi this is vue",
-                className:'alert alert-danger'
+                className:'alert alert-danger',
+                show : false
             }
         });
     </script>
