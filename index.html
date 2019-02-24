@@ -29,13 +29,19 @@
             </h2>
             <!-- Fourth practice -->
             <ol>
-                <li v-for = 'list in lists'>{{list}}</li>
+                <li v-for = 'list in lists' v-show = 'visible'>{{list}}</li>
             </ol>
 
             <!-- fifth practice -->
             <ul>
                 <li v-for = 'ul_list in ul_lists'>{{ul_list.social}}</li>
             </ul>
+
+            <!-- sixth practice -->
+            <input type="text" v-model = 'message' class="form-control">
+
+            <!-- Seventh practice -->
+            <button v-on:click = 'enalble' class = "btn btn-info">Show list</button>
         </div>
     </div>
 
@@ -52,7 +58,14 @@
                     {social:'Facebook'},
                     {ecommerce:'Amazon'},
                     {software:'Microsoft'}
-                ]
+                ],
+                visible : false
+            },
+
+            methods:{
+                enalble: function(){
+                    this.visible = true;
+                }
             }
         });
     </script>
