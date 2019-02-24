@@ -15,13 +15,22 @@
 <body>
     <div class="container">
         <div id="app">
-            
+            <h3>{{reverse()}}</h3>
         </div>
     </div>
 
     <script>
         new Vue ({
-            
+            el:'#app',
+            data:{
+                message:'Hi this is Session-2'
+            },
+
+            methods:{
+                reverse:function(){
+                    return this.message.split('').reverse().join('');
+                }
+            }
         });
     </script>
 </body>
