@@ -27,11 +27,11 @@
         <div id="app" align = "center">
             <div class="col-lg-offset-4 col-lg-4">
                 <ul class="list-group">
-                    <li v-for = "fruit in fruits" v-on:click = "modify(fruit)" class="list-group-item d-flex justify-content-between align-items-center">
+                    <li  v-for = "fruit in fruits" class="list-group-item d-flex justify-content-between align-items-center {{fruit.class}}"   v-on:click = "modify(fruit)">
                         {{fruit.name}}
                         <span class="badge badge-primary badge-pill">{{fruit.cost}}</span>
                     </li>
-
+                    <!-- <div id={{ fruit.class }}>blag</div> -->
                     <li  class="list-group-item d-flex justify-content-between align-items-center">
                         Total Cost:
                         <span class="badge badge-primary badge-pill">{{total}}</span>
@@ -42,22 +42,36 @@
     </div>
 
     <script>
-       new Vue({
-          el:'#app',
-          data:{
-              total:0,
-              fruits:[
-                  {name:'apple',cost:10},
-                  {name:'mango',cost:20},
-                  {name:'banana',cost:30}
-              ]
-          },
-          methods:{
-              modify:function(fruit){
-                  this.total = this.total + fruit.cost;
-              }
-          }
-       });
+        new Vue({
+            el:'#app',
+            data:{
+                total:0,
+                fruits:[
+                    {name:'apple',cost:10,clicked:false,class:'select'},
+                    {name:'mango',cost:20,clicked:false,class:'select'},
+                    {name:'banana',cost:30,clicked:false,class:'select'}
+                ]
+            },
+            methods:{
+                modify:function(fruit){
+                    this.total = this.total + fruit.cost;
+                    if(fruit.clicked){
+                        this.total = this.total - fruit.cost;
+                    }else{
+                        this.total = this.total + fruit.cost;
+                    }
+
+                    fruit.clicked = !fruit.clicked;
+                    
+                }
+            }
+        });
     </script>
+
+    <style>
+        .select{
+            background-color:aqua;
+        }
+    </style>
 </body>
 </html>
