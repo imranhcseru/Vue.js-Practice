@@ -14,13 +14,20 @@
 </head>
 <body>
     <div class="container">
-        <div id="app"> 
+        <div id="app"> '
+            <!-- Thirteenth Practice -->
+            <h3 v-bind:class = "{'alert alert-success': isActive,'col-lg-6':isMin}">Speed of Light</h3>
+            <h3 v-bind:class = "[isActive?'alert alert-danger':'alert alert-success','col-lg-6']">Speed of Sound</h3>
         </div>
     </div>
 
     <script>
         new Vue({
-            
+            el:'#app',
+            data:{
+                isActive:true,
+                isMin:true
+            }
         });
     </script>
 </body>
