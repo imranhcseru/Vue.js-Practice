@@ -27,7 +27,7 @@
         <div id="app" align = "center">
             <div class="col-lg-offset-4 col-lg-4">
                 <ul class="list-group">
-                    <li  v-for = "fruit in fruits" class="list-group-item d-flex justify-content-between align-items-center {{fruit.class}}"   v-on:click = "modify(fruit)">
+                    <li  v-for = "fruit in fruits" class="list-group-item d-flex justify-content-between align-items-center " :class = 'fruit.class'  v-on:click = "modify(fruit)">
                         {{fruit.name}}
                         <span class="badge badge-primary badge-pill">{{fruit.cost}}</span>
                     </li>
@@ -47,30 +47,33 @@
             data:{
                 total:0,
                 fruits:[
-                    {name:'apple',cost:10,clicked:false,class:'select'},
-                    {name:'mango',cost:20,clicked:false,class:'select'},
-                    {name:'banana',cost:30,clicked:false,class:'select'}
+                    {name:'apple',cost:10,clicked:false,class:'unselect'},
+                    {name:'mango',cost:20,clicked:false,class:'unselect'},
+                    {name:'banana',cost:30,clicked:false,class:'unselect'}
                 ]
             },
             methods:{
                 modify:function(fruit){
-                    this.total = this.total + fruit.cost;
                     if(fruit.clicked){
                         this.total = this.total - fruit.cost;
+                        fruit.class = 'select';
                     }else{
                         this.total = this.total + fruit.cost;
+                        fruit.class = 'unselect';
                     }
-
-                    fruit.clicked = !fruit.clicked;
-                    
+                    fruit.clicked = !fruit.clicked; 
                 }
             }
         });
     </script>
 
     <style>
-        .select{
+        .unselect{
             background-color:aqua;
+        }
+
+        .select{
+            background-color: cornflowerblue;
         }
     </style>
 </body>
