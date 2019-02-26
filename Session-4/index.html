@@ -15,11 +15,13 @@
 <body>
     <div class="container">
         <div id="app"> '
-            <!-- Fourteenth Practice -->
-            <h3 v-if = "show">This is a True statement</h3>
-            <!-- Fifteenth Practice -->
+            
+            <!-- <h3 v-if = "show">This is a True statement</h3>
+            
             <h3 v-else-if = "show1">This is a else if statement</h3>
-            <h3 v-else = "show">This is a false statement</h3>
+            <h3 v-else = "show">This is a false statement</h3>  -->
+            <!-- Sixteenth Practice -->
+            <h3 v-if = "show == show1">This is a True statement</h3>
         </div>
     </div>
 
@@ -27,7 +29,7 @@
        new Vue({
             el:'#app',
             data:{
-                show:false,
+                show:true,
                 show1:true
             }
        });
